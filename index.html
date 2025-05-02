@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <title>Amazon.in - Home</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+    }
+    header {
+      background-color: #131921;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+    }
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #ff9900;
+    }
+    .logo img {
+        width: 130px;
+        height: 40px;
+    }
+    .location {
+      border: 1px;
+      padding: 5px 10px;
+      border-radius: 4px;
+      font-size: 15px;
+    }
+    .location i {
+      margin-right: 5px;
+    }
+    .search-bar {
+      display: flex;
+      width: 750px;
+      margin: auto;
+      border: 2px solid orange;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .search-bar select {
+      width: 70px;
+      padding: 10px;
+      border: none;
+      background-color: #e6e6e6;
+      font-size: 14px;
+    }
+    .search-bar input[type="text"] {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      font-size: 14px;
+    }
+    .search-bar button {
+      background-color: #febd69;
+      border: none;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+    .search-bar button:hover {
+      background-color: #f3a847;
+    }
+    .search-bar button i {
+      font-size: 18px;
+      color: black;
+    }
+    .search-box input {
+      padding: 8px;
+      width: 300px;
+    }
+    .nav-item {
+      position: relative;
+      display: inline-block;
+      padding: 10px;
+      background-color: #131921;
+      color: white;
+      cursor: pointer;
+    }
+    .dropdown {
+      display: none;
+      position: absolute;
+      top: 40px;
+      left: 0;
+      background: white;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      width: 500px;
+      padding: 20px;
+      z-index: 1000;
+    }
+    .nav-item:hover .dropdown {
+      display: flex;
+      justify-content: space-between;
+    }
+    .dropdown h4 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+    .dropdown ul {
+      list-style: none;
+      padding: 0;
+    }
+    .dropdown ul li {
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+    .sign-in-button {
+      background-color: #ffd814;
+      border: none;
+      padding: 10px 20px;
+      font-weight: bold;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .dropdown-columns {
+      display: flex;
+      gap: 40px;
+      color: black;
+    }
+    .start-here {
+      font-size: 12px;
+      margin-top: 5px;
+    }
+    .start-here a {
+      color: #007185;
+      text-decoration: none;
+    }
+    .langbox-wrapper {
+      position: relative;
+      display: inline-block;
+    }
+    .langbox-toggle {
+      background-color: #131921;
+      border: 1px solid #131921;
+      padding: 8px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+    }
+    .langbox-toggle img {
+      width: 20px;
+      height: 14px;
+      margin-right: 5px;
+    }
+    .langbox-panel {
+      display: none;
+      position: absolute;
+      top: 100%;
+      background-color: white;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      width: 260px;
+      z-index: 1000;
+      padding: 16px;
+      border-radius: 6px;
+    }
+    .langbox-wrapper:hover .langbox-panel {
+      display: block;
+    }
+    .langbox-option {
+      margin: 10px 0;
+      color: black;
+    }
+    .langbox-option input {
+      margin-right: 8px;
+    }
+    .langbox-note {
+      font-size: 13px;
+      margin-top: 12px;
+      display: flex;
+      align-items: center;
+    }
+    .langbox-note img {
+      width: 16px;
+      margin-right: 6px;
+    }
+    .langbox-link {
+      color: #0073e6;
+      font-size: 13px;
+      margin-top: 6px;
+      cursor: pointer;
+    }
+    .nav-item {
+      position: relative;
+      display: inline-block;
+      padding: 10px;
+      background-color: #131921;
+      color: white;
+      cursor: pointer;
+    }
+    .dropdown {
+      display: none;
+      position: absolute;
+      top: 40px;
+      left: 0;
+      background: white;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      width: 500px;
+      padding: 20px;
+      z-index: 1000;
+    }
+    .nav-item:hover .dropdown {
+      display: flex;
+      justify-content: space-between;
+    }
+    .dropdown h4 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+    .dropdown ul {
+      list-style: none;
+      padding: 0;
+    }
+    .dropdown ul li {
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+    .sign-in-button {
+      background-color: #ffd814;
+      width: 500px;
+      border: none;
+      padding: 10px 20px;
+      font-weight: bold;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .dropdown-columns {
+      display: flex;
+      gap: 40px;
+    }
+    .start-here {
+      color: black;
+      font-size: 12px;
+      margin-top: 5px;
+    }
+    .start-here a {
+      color: #007185;
+      text-decoration: none;
+    }
+    .order-info {
+      margin-right: 20px;
+      line-height: 1;
+    }
+    .order-label {
+      font-size: 12px;
+    }
+    .order-link {
+      font-size: 14px;
+      font-weight: bold;
+    }
+    .nav-links a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+    }
+    .navbar {
+      background-color: #232F3E;
+    }
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+    nav ul li {
+      flex: 1;
+      color: white;      
+      text-align: center;
+      padding: 7px 4px;
+      text-decoration: none;
+    }
+    .banner {
+      background-image: url('https://images-eu.ssl-images-amazon.com/images/G/31/IN-Events/Shankhadip/MayART25/MAY25_GW_PC_Hero_H1_8PM_Ends-Midnight_2x._CB794858947_.jpg');
+      background-color: #999;
+      height: 600px;
+      width: 1514px;
+      background-size: cover;
+      background-position: center;
+    }
+    .back-to-top {
+      background-color: #37475a;
+      text-align: center;
+      color: white;
+      padding: 10px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    .footer-main {
+      background-color: #232F3E;
+      padding: 40px 20px;
+      display: flex;
+      justify-content: center;
+      gap: 60px;
+      flex-wrap: wrap;
+    }
+    .footer-column {
+      min-width: 180px;
+      color: white;
+    }
+    .footer-column h4 {
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .footer-column ul li {
+      margin-bottom: 8px;
+      font-size: 14px;
+      color: #ddd;
+      cursor: pointer;
+    }
+    .footer-bottom {
+      border-top: 1px solid #3a4553;
+      background-color: #232F3E;
+      text-align: center;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .footer-bottom img {
+      height: 25px;
+    }
+    .select-box {
+      background-color: transparent;
+      border: 1px solid #848688;
+      color: white;
+      padding: 8px 12px;
+      border-radius: 4px;
+      font-size: 14px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .select-container {
+      display: flex;
+      gap: 10px;
+    }
+    .footer-affiliates {
+      background-color: #131a22;
+      padding: 30px 20px;
+      text-align: center;
+      color: #ddd;
+      font-size: 13px;
+    }
+    .affiliate-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 40px;
+      margin-bottom: 20px;
+    }
+    .affiliate-links div {
+      max-width: 150px;
+      text-align: left;
+      line-height: 1.4;
+    }
+    .legal-links span {
+      margin: 0 10px;
+      color: #999;
+      cursor: pointer;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo"><img src="amazon_logo.png" alt="logo"></div>
+    <div class="location">
+      <small>Delivering to Guwahati 781001</small><br>
+      <i class="fas fa-map-marker-alt"></i>
+      <strong>Update location</strong>
+    </div>    
+    <div class="search-bar">
+        <select name="category">
+            <option>All</option>
+            <option>All Categories</option>
+            <option>Alexa Skills</option>
+            <option>Amazon Devices</option>
+            <option>Amazon Fashion</option>
+            <option>Amazon Pharmacy</option>
+            <option>Appliances</option>
+            <option>Apps & Games</option>
+            <option>Audible Audiobooks</option>
+            <option>Baby</option>
+            <option>Beauty</option>
+            <option>Books</option>
+            <option>Car & Motorbike</option>
+            <option>Clothing & Accessories</option>
+            <option>Collectibles</option>
+            <option>Computers & Accessories</option>
+            <option>Deals</option>
+            <option>Electronics</option>
+            <option>Furniture</option>
+            <option>Garden & Outdoors</option>
+            <option>Gift Cards</option>
+        </select>
+        <input type="text" placeholder="Search products...">
+        <button>
+            <i class="fas fa-search"></i>
+        </button>
+    </div>
+    <div class="langbox-wrapper">
+      <div class="langbox-toggle">
+        <img src="https://flagcdn.com/in.svg" alt="India Flag">
+        EN
+      </div>        
+      <div class="langbox-panel">
+        <div class="langbox-option"><input type="radio" name="language" checked> English - EN</div>
+        <div class="langbox-option"><input type="radio" name="language"> हिन्दी - HI</div>
+        <div class="langbox-option"><input type="radio" name="language"> தமிழ் - TA</div>
+        <div class="langbox-option"><input type="radio" name="language"> తెలుగు - TE</div>
+        <div class="langbox-option"><input type="radio" name="language"> ಕನ್ನಡ - KN</div>
+        <div class="langbox-option"><input type="radio" name="language"> മലയാളം - ML</div>
+        <div class="langbox-option"><input type="radio" name="language"> বাংলা - BN</div>
+        <div class="langbox-option"><input type="radio" name="language"> मराठी - MR</div>        
+        <div class="langbox-link">Learn more</div>        
+        <hr>
+        <div class="langbox-note">
+          <img src="https://flagcdn.com/in.svg" alt="India Flag">
+          You are shopping on Amazon.in
+        </div>
+        <div class="langbox-link">Change country/region</div>
+      </div>
+    </div>        
+    <div class="nav-item">
+      Hello, sign in<br><strong>Account & Lists</strong>        
+      <div class="dropdown">
+        <div>
+          <div>
+            <button class="sign-in-button">Sign in</button>
+            <center>
+              <div class="start-here">New customer?<a href="#">Start here.</a></div>
+            </center>
+          </div>     
+          <br>   
+          <div class="dropdown-columns">
+            <div>
+              <h4>Your Lists</h4>
+              <ul>
+                <li>Create a Wish List</li>
+                <li>Wish from Any Website</li>
+                <li>Baby Wishlist</li>
+                <li>Discover Your Style</li>
+                <li>Explore Showroom</li>
+              </ul>
+            </div>    
+            <br><br><br><br><br>    
+            <div>
+              <h4>Your Account</h4>
+              <ul>
+                <li>Your Account</li>
+                <li>Your Orders</li>
+                <li>Your Wish List</li>
+                <li>Your Recommendations</li>
+                <li>Your Prime Membership</li>
+                <li>Your Prime Video</li>
+                <li>Your Subscribe & Save Items</li>
+                <li>Memberships & Subscriptions</li>
+                <li>Your Seller Account</li>
+                <li>Manage Your Content and Devices</li>
+                <li>Register for a free Business Account</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="order-info">
+      <span class="order-label">Returns</span><br>
+      <span class="order-link">& Orders</span>
+    </div>
+    <div class="shopping-cart">
+      <span class="item-count">0</span>
+      <span class="cart-label">Cart</span>
+    </div>
+  </header>
+  <nav class="navbar">
+    <ul>
+      <li><i class="fa-solid fa-bars"></i>All</li>
+      <li>MX-Player</li>
+      <li>Sell</li>
+      <li>Bestsellers</li>
+      <li>Today's Deal</li>
+      <li>Mobiles</li>
+      <li>Prime</li>
+      <li>Fashion</li>
+      <li>Customer services</li>
+      <li>New Releases</li>
+      <li>Electronics</li>
+    </ul>
+  </nav>
+  <div class="banner"></div>
+  <div class="back-to-top">Back to top</div>
+  <div class="footer-main">
+    <div class="footer-column">
+      <h4>Get to Know<br>Us</h4>
+      <ul>
+        <li>About Amazon</li>
+        <li>Careers</li>
+        <li>Press Releases</li>
+        <li>Amazon Science</li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h4>Connect with<br>Us</h4>
+      <ul>
+        <li>Facebook</li>
+        <li>Twitter</li>
+        <li>Instagram</li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h4>Make Money with Us</h4>
+      <ul>
+        <li>Sell on Amazon</li>
+        <li>Sell under Amazon Accelerator</li>
+        <li>Protect and Build Your Brand</li>
+        <li>Amazon Global Selling</li>
+        <li>Supply to Amazon</li>
+        <li>Become an Affiliate</li>
+        <li>Fulfilment by Amazon</li>
+        <li>Advertise Your Products</li>
+        <li>Amazon Pay on Merchants</li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h4>Let Us Help You</h4>
+      <ul>
+        <li>Your Account</li>
+        <li>Returns Centre</li>
+        <li>Recalls and Product Safety Alerts</li>
+        <li>100% Purchase Protection</li>
+        <li>Amazon App Download</li>
+        <li>Help</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <img src="amazon_logo.png" alt="Amazon Logo">
+    <div class="select-container">
+      <div class="select-box"><i class="fa-solid fa-globe"></i>English</div>
+      <div class="select-box"><img src="https://flagcdn.com/in.svg" width="24" alt="India Flag">India</div>
+    </div>
+  </div>
+  <div class="footer-affiliates">
+    <div class="affiliate-links">
+      <div>
+        <div>
+          <strong>AbeBooks</strong><br>
+          Books, art<br>
+          & collectibles
+        </div>
+        <br>
+        <div>
+          <strong>Shopbop</strong><br>
+          Designer<br>
+          Fashion Brands
+        </div>
+      </div>
+      <div>
+        <div>
+          <strong>Amazon Web Services</strong><br>
+          Scalable Cloud<br>
+          Computing Services
+        </div>
+        <br>
+        <div>
+          <strong>Amazon Business</strong><br>
+          Everything For<br>
+          Your Business
+        </div>
+      </div>
+      <div>
+        <div>
+          <strong>Audible</strong><br>
+          Download<br>
+          Audio Books
+        </div>
+        <br>
+        <div>
+          <strong>Prime Now</strong><br>
+          2-Hour Delivery<br>
+          on Everyday Items
+        </div>
+      </div>
+      <div>
+        <div>
+          <strong>IMDb</strong><br>
+          Movies, TV<br>
+          & Celebrities
+        </div> 
+        <br>       
+        <div>
+          <strong>Amazon Prime Music</strong><br>
+          100 million songs, ad-free<br>
+          Over 15 million podcast episodes
+        </div>
+      </div>
+    </div>
+    <div class="legal-links">
+      <span>Conditions of Use & Sale</span>
+      <span>Privacy Notice</span>
+      <span>Interest-Based Ads</span>
+      <br>
+      <span>© 1996–2025, Amazon.com, Inc. or its affiliates</span>
+    </div>
+  </div>
+</body>
+</html>
